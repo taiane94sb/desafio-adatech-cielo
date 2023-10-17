@@ -2,6 +2,8 @@ package com.desafio.cielo.models;
 
 import com.desafio.cielo.dtos.NaturalPersonDto;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,10 +22,13 @@ public class NaturalPerson {
     private Long id;
 
     @Column(unique = true)
+    @Size(min = 11, max = 11)
     private String cpf;
 
+    @Size(min = 0, max = 4)
     private String mcc;
 
+    @Size(min = 0, max = 50)
     private String name;
 
     private String email;

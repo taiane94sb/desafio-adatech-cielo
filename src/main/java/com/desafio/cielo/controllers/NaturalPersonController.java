@@ -4,6 +4,7 @@ import com.desafio.cielo.dtos.NaturalPersonDto;
 import com.desafio.cielo.models.NaturalPerson;
 import com.desafio.cielo.repositories.NaturalPersonRepository;
 import com.desafio.cielo.services.NaturalPersonService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class NaturalPersonController {
 
     // Cadastrar
     @PostMapping
-    public ResponseEntity<NaturalPerson> createNaturalPerson(@RequestBody NaturalPersonDto naturalPerson) {
+    public ResponseEntity<NaturalPerson> createNaturalPerson(@Valid @RequestBody NaturalPersonDto naturalPerson) {
         NaturalPerson newNaturalPerson = naturalPersonService.createNaturalPerson(naturalPerson);
         return new ResponseEntity<>(newNaturalPerson, HttpStatus.CREATED);
     }

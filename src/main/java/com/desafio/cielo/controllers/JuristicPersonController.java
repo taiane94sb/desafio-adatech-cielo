@@ -4,6 +4,7 @@ import com.desafio.cielo.dtos.JuristicPersonDto;
 import com.desafio.cielo.models.JuristicPerson;
 import com.desafio.cielo.repositories.JuristicPersonRepository;
 import com.desafio.cielo.services.JuristicPersonService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class JuristicPersonController {
 
     // Cadastrar
     @PostMapping
-    public ResponseEntity<JuristicPerson> createJuristicPerson(@RequestBody JuristicPersonDto juristicPerson) {
+    public ResponseEntity<JuristicPerson> createJuristicPerson(@Valid @RequestBody JuristicPersonDto juristicPerson) {
         JuristicPerson newJuristicPerson = juristicPersonService.createJuristicPerson(juristicPerson);
         return new ResponseEntity<>(newJuristicPerson, HttpStatus.CREATED);
     }
