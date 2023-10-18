@@ -18,10 +18,6 @@ public class JuristicPersonService {
     @Autowired
     private JuristicPersonRepository repository;
 
-    public JuristicPerson findJuristicPersonById(Long id) throws Exception {
-        return this.repository.findJuristicPersonById(id).orElseThrow(() -> new Exception("Juristic person was not found!"));
-    }
-
     public JuristicPerson createJuristicPerson(JuristicPersonDto data) {
         JuristicPerson newJuristicPerson = new JuristicPerson(data);
         this.saveJuristicPerson(newJuristicPerson);

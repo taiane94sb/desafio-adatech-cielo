@@ -9,6 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface JuristicPersonRepository extends JpaRepository<JuristicPerson, Long> {
-    Optional<JuristicPerson> findJuristicPersonByCnpj(String cnpj);
     Optional<JuristicPerson> findJuristicPersonById(Long id);
 }

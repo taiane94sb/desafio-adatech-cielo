@@ -15,10 +15,6 @@ public class NaturalPersonService {
     @Autowired
     private NaturalPersonRepository repository;
 
-    public NaturalPerson findNaturalPersonById(Long id) throws Exception {
-        return this.repository.findNaturalPersonById(id).orElseThrow(() -> new Exception("Natural person was not found!"));
-    }
-
     public NaturalPerson createNaturalPerson(NaturalPersonDto data) {
         NaturalPerson newNaturalPerson = new NaturalPerson(data);
         this.saveNaturalPerson(newNaturalPerson);
